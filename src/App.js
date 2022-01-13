@@ -7,15 +7,18 @@ import Detail from './components/Detail'
 import NotFound from './components/NotFound'
 import MyNavbar from './components/MyNavbar'
 import Appointment from './components/Appointment'
+import { useState } from 'react'
 
 function App() {
+  const [filter, setFilter] = useState('')
+
   return (
     <BrowserRouter>
       <div className='App'>
-        <MyNavbar />
+        <MyNavbar filter={filter} setFilter={setFilter} />
         <div>WELCOME TO MY WEBSITE</div>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home filter={filter} />} />
           <Route
             path='/profile'
             element={

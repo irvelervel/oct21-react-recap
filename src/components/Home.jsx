@@ -5,7 +5,7 @@ class Home extends Component {
 
     state = {
         appointments: [],
-        isLoading: true
+        isLoading: true,
     }
 
     componentDidMount = async () => {
@@ -40,8 +40,10 @@ class Home extends Component {
                 {
                     this.state.isLoading && <h3>...LOADING...</h3>
                 }
+
+                {/* we need a controlled input: with a set value, and an onChange event listener */}
                 {
-                    !this.state.isLoading && this.state.appointments.map(appointment => (
+                    !this.state.isLoading && this.state.appointments.filter(a => a.name.toLowerCase().includes(this.props.filter.toLowerCase())).map(appointment => (
                         <div key={appointment._id}>
                             <Link to={'/agenda/' + appointment._id}>{appointment.name}</Link>
                         </div>

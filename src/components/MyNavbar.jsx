@@ -1,7 +1,7 @@
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { Link, useLocation } from 'react-router-dom'
 
-const MyNavbar = () => {
+const MyNavbar = ({ filter, setFilter }) => {
 
     const location = useLocation()
     // location is ALWAYS an object, probably the most important property of it is PATHNAME
@@ -33,6 +33,14 @@ const MyNavbar = () => {
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
+                <input
+                    type="text"
+                    className="ml-auto"
+                    value={filter}
+                    onChange={e =>
+                        setFilter(e.target.value)
+                    }
+                />
             </Navbar.Collapse>
         </Navbar>
     )

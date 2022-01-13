@@ -1,3 +1,6 @@
+// import { Component } from 'react'
+// import withRouter from '../lib/withRouter'
+
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
@@ -54,21 +57,57 @@ const Appointment = () => {
 
 export default Appointment
 
+// 2)
 // class Appointment extends Component {
+
+//     state = {
+//         details: null
+//     }
+
+//     componentDidMount = async () => {
+
+//         const appointmentId = this.props.router.params.appointmentId
+
+//         try {
+//             let response = await fetch('https://striveschool-api.herokuapp.com/api/agenda/' + appointmentId)
+//             if (response.ok) {
+//                 let data = await response.json()
+//                 console.log('DATA', data)
+//                 // now I want to safely store these details in my state!
+//                 this.setState({
+//                     details: data
+//                 })
+//             }
+//         } catch (error) {
+//             console.log(error)
+//         }
+//     }
+
 //     render() {
+
+//         // this component now, thanks to the withRouter function, is getting MORE PROPS than before!
+//         // we have now location, params and navigate from the PROPS!
+//         console.log(this.props.router.params.appointmentId)
+
 //         return (
 //             <div>
 //                 <h1>APPOINTMENT DETAILS</h1>
-//                 <div>
-//                     <h3>NAME</h3>
-//                     <h3>DATE</h3>
-//                 </div>
+//                 {
+//                     this.state.details && (
+//                         <div>
+//                             <h3>NAME: {this.state.details.name}</h3>
+//                             <h3>DATE: {this.state.details.time}</h3>
+//                             <h3>DESCRIPTION: {this.state.details.description}</h3>
+//                         </div>
+//                     )
+//                 }
+
 //             </div>
 //         )
 //     }
 // }
 
-// export default Appointment
+// export default withRouter(Appointment)
 
 // we're being brought here because we clicked on one of the appointments
 // here we're getting the ID of the appointment in the address bar!
